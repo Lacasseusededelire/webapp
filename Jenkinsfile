@@ -26,7 +26,7 @@ pipeline {
             steps {
                 script {
                     // Exemple de test basique
-                    def response = sh(script: "curl -o /dev/null -s -w '%{http_code}' http://localhost:8085", returnStdout: true)
+                    def response = sh(script: "curl -o /dev/null -s -w '%{http_code}' --max-time 60 http://localhost:8085", returnStdout: true)
                     if (response.trim() != '200') {
                         error("Application test failed. HTTP response: ${response}")
                     } else {
