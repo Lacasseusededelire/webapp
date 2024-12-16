@@ -1,10 +1,10 @@
-FROM nginx:alpine-latest
+FROM nginx:alpine
 
-# Cloner le dépôt Git dans le répertoire de contenu de Nginx
-WORKDIR /usr/share/nginx/html
-COPY . .
-RUN git clone https://github.com/diranetafen/static-website-example.git .
+# Copiez votre fichier de configuration Nginx
+COPY nginx.conf /etc/nginx/conf.d/default.conf
 
-EXPOSE 80
+# Copiez les fichiers de votre application
+COPY . /usr/share/nginx/html
 
-ENTRYPOINT ["/usr/sbin/nginx", "-g", "daemon off;"]
+# Exposez le port que Nginx va utiliser
+EXPOSE 8080
