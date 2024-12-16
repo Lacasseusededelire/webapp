@@ -22,11 +22,19 @@ pipeline {
                 sh 'docker run -d --name ${CONTAINER_NAME} -p 8085:8080 ${DOCKER_IMAGE}'
             }
         }
+        stage('Wait for Application to Start') {
+            steps {
+                script {
+                     sleep(60)  // Attend 30 secondes
+                }
+            }
+        }
+
         stage('Test Application') {
             steps {
                 script {
                     // Exemple de test basique
-                    def response = sh(script: "curl -o /dev/null -s -w '%{http_code}' --max-time 60 http://localhost:8085", returnStdout: true)
+                    def response = sh(script: "curl -o /dev/null -s -w '%{http_code}' --max-time 60 http://172.17.0.2:8085", returnStdout: true)
                     if (response.trim() != '200') {
                         error("Application test failed. HTTP response: ${response}")
                     } else {
