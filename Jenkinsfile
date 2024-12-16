@@ -3,7 +3,7 @@ pipeline {
     environment {
         DOCKER_IMAGE = 'webapp:latest' // Nom de l'image Docker
         CONTAINER_NAME = 'webapp-container2' // Nom du conteneur
-        DOCKER_REGISTRY = 'webapp2.hub.docker.com' // Exemple : "registry.hub.docker.com" ou "ghcr.io"
+        DOCKER_REGISTRY = 'registry.hub.docker.com' // Exemple : "registry.hub.docker.com" ou "ghcr.io"
         DOCKER_USERNAME = 'marieemko' // Remplacez par votre nom d'utilisateur Docker
         DOCKER_PASSWORD = 'Ndomemouto2105@' // Remplacez par votre mot de passe Docker (configuré dans Jenkins Credentials)
     }
