@@ -10,8 +10,7 @@ pipeline {
     stages {
         stage('Checkout Code') {
             steps {
-                git 'https://github.com/Lacasseusededelire/webapp' // Remplacez par l'URL de votre dépôt
-            }
+git branch: 'main', url: 'https://github.com/Lacasseusededelire/webapp.git'            }
         }
         stage('Build Docker Image') {
             steps {
