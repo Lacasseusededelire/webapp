@@ -10,7 +10,7 @@ pipeline {
     stages {
         stage('Checkout Code') {
             steps {
-                git 'https://github.com/diranetafen/static-website-example.git' // Remplacez par l'URL de votre dépôt
+                git 'https://github.com/Lacasseusededelire/webapp' // Remplacez par l'URL de votre dépôt
             }
         }
         stage('Build Docker Image') {
