@@ -25,7 +25,7 @@ pipeline {
         stage('Wait for Application to Start') {
             steps {
                 script {
-                     sleep(60)  // Attend 30 secondes
+                     sleep(30)  // Attend 30 secondes
                 }
             }
         }
