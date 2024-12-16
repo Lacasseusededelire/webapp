@@ -10,7 +10,7 @@ pipeline {
     stages {
         stage('Checkout Code') {
             steps {
-git branch: 'main', url: 'https://github.com/Lacasseusededelire/webapp.git'            }
+               git branch: 'main', url: 'https://github.com/Lacasseusededelire/webapp.git'            }
         }
         stage('Build Docker Image') {
             steps {
@@ -19,7 +19,7 @@ git branch: 'main', url: 'https://github.com/Lacasseusededelire/webapp.git'     
         }
         stage('Run Docker Container') {
             steps {
-                sh 'docker run -d --name ${CONTAINER_NAME} -p 8080:8080 ${DOCKER_IMAGE}'
+                sh 'docker run -d --name ${CONTAINER_NAME} -p 8085:8080 ${DOCKER_IMAGE}'
             }
         }
         stage('Test Application') {
