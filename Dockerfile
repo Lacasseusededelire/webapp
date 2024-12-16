@@ -1,7 +1,10 @@
-LABEL maintainer="training"
-RUN apt-get update
-RUN DEBIAN_FRONTEND=noninteractive apt-get install -y nginx git
-RUN rm -Rf /var/www/html/*
-RUN git clone https://github.com/diranetafen/static-website-example.git /var/www/html/
+FROM nginx:alpine-latest
+
+# Cloner le dépôt Git dans le répertoire de contenu de Nginx
+WORKDIR /usr/share/nginx/html
+COPY . .
+RUN git clone https://github.com/diranetafen/static-website-example.git .
+
 EXPOSE 80
+
 ENTRYPOINT ["/usr/sbin/nginx", "-g", "daemon off;"]
